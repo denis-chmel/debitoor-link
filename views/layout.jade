@@ -1,0 +1,37 @@
+doctype html5
+html(lang='en')
+
+  block link
+    -var selected = 'Customers';
+  -var menu = { 'Customers': '/', 'Upload CSV': '/upload', 'Log out': '/logout' };
+
+    head
+        meta(charset='utf-8')
+        title Debitoor Link
+        link(href='/css/bootstrap.min.css', rel='stylesheet')
+        link(href='/css/bootstrap-theme.min.css', rel='stylesheet')
+        script(src='/js/jquery-2.1.0.min.js')
+        script(src='/js/bootstrap.min.js')
+    body
+        div.container
+
+            div.header
+                ul.nav.nav-pills.pull-right
+                    each val, key in menu
+                        li(class= selected === key ? "active" : "")
+                            a(href=val, title=key)= key
+                h3
+                    a(href="/") Debitoor Link
+
+            hr
+
+            - if (messages.success)
+                div.alert.alert-success= messages.success
+
+            - if (messages.warning)
+                div.alert.alert-warning= messages.warning
+
+            - if (messages.error)
+                div.alert.alert-danger= messages.error
+
+            block content

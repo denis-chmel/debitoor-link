@@ -1,0 +1,24 @@
+extends layout
+block content
+
+    - if (!customers.length)
+        p There are no customers in your debitoor account yet. You may <a href="/upload">upload</a> a CSV to add some.
+    - else
+        table.table.customers
+            thead
+                tr
+                    th #
+                    th Customer
+                    th Email
+                    th Country
+                    th
+            tbody
+                each customer in customers
+                    tr
+                        td=customer.number
+                        td=customer.name
+                        td=customer.email
+                        td=customer.countryCode
+                        td
+                            form(method="post", action="/customers/#{customer.id}/delete" style="margin: 0")
+                                button.btn.btn-xs.btn-danger(onclick="return confirm('Sure to delete?')") Delete

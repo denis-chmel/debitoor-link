@@ -1,0 +1,10 @@
+{
+    "baseUrl": "http://localhost:5555",
+    "debitoor": {
+        "api_url": "https://api.debitoor.com/api/v1.0",
+        "client_id": "531d9a273348e6e665000e12",
+        "client_secret": "9fe0f5d36ae090868b7571a235af44c4",
+        "test_login": "chmel@mail.ru",
+        "test_password": "eae8bb80-a8fd-11e3-aaa5-c9c448510c9e"
+    }
+}
